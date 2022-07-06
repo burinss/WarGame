@@ -27,6 +27,7 @@ func _ready():
 		mySprite.position = Vector2(entity['x'],entity['y'])
 		#mySprite.rotate(angle)
 		mySprite.scale = Vector2(1.0,1.0)
+		mySprite.centered=false
 		add_child(mySprite)
 	#pass # Replace with function body.
 
