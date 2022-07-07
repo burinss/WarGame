@@ -10,7 +10,7 @@ var drag = false
 func _ready():
 	position.x=100
 	position.y=100
-	var dict = {}
+
 	var file = File.new()
 	file.open("res://data1.json", file.READ)
 	var text = file.get_as_text()
@@ -20,12 +20,18 @@ func _ready():
 	var entities = result_json["entities"]
 	
 	for entity in entities:
+		var myArea = Area2D.new()
 		var mySprite = Sprite.new()
 		mySprite.texture = load("res://cropped//" + entity['Name'])
 		mySprite.position = Vector2(entity['x'],entity['y'])
 		mySprite.scale = Vector2(1.0,1.0)
 		mySprite.centered=false
-		add_child(mySprite)
+		var script = load('res://Province.gd')
+		
+		myArea.set_script(script)
+		myArea.add_child(mySprite)
+		
+		add_child(myArea)
 	#pass # Replace with function body.
 
 func _unhandled_input(event):
