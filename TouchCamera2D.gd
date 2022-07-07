@@ -231,7 +231,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			end_position = event.position
 
 		# If it's a ScreenDrag
-		if event is InputEventScreenDrag:
+		if event is InputEventSingleScreenDrag:
 			var last_pos: Vector2 = events[event.index].position
 
 			# If the distance between this touch index and the stored

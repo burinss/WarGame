@@ -4,7 +4,6 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-var drag = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,7 +30,8 @@ func _ready():
 		add_child(mySprite)
 
 func _unhandled_input(event):
-	print(event)
+	if event is InputEventSingleScreenTouch:
+		print("click")
 	if event is InputEventSingleScreenDrag:
 		$Camera2D.position-=event.relative
 		

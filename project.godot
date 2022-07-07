@@ -92,25 +92,32 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Wargame"
+config/name="WarGame"
 run/main_scene="res://MainScene.tscn"
-config/icon="res://icon.png"
 
-[input]
+[autoload]
 
-click={
-"deadzone": 1.0,
-"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
- ]
-}
+InputManager="*res://GDTIM-v2_1_0/InputManager.gd"
 
-[physics]
+[debug]
 
-common/enable_pause_aware_picking=true
+gdscript/warnings/return_value_discarded=false
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+
+[global]
+
+android=false
+simul=false
+input=false
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
-vram_compression/import_etc=true
-vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
