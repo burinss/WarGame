@@ -1,15 +1,13 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-var drag = false
 var name_state
 var arr_color_state = {}
-# Called when the node enters the scene tree for the first time.
-func _ready():
 
+var size_flag = 0.2
+var size_sprite_map = 1.0
+
+
+func _ready():
 	var file = File.new()
 	file.open("res://data1.json", file.READ)
 	var text = file.get_as_text()
@@ -24,28 +22,23 @@ func _ready():
 		var mySprite = Sprite.new()
 		var image = Image.new()
 		var icon_flag = Sprite.new()
+		var res = Sprite.new()
+		var script = load('res://Province.gd')
 		image.load("res://cropped//" + entity['Name'])
 		name_state = entity['Name'].split("_")[0]
-		print(name_state)
 		mySprite.centered = false
 		mySprite.texture = load("res://cropped//" + entity['Name'])
-		#mySprite.position = Vector2(entity['x'],entity['y'])
-		mySprite.scale = Vector2(1.0,1.0)
-		
+		mySprite.scale = Vector2(size_sprite_map, size_sprite_map)
+		mySprite.name = entity['Name']
 		set_color_province(mySprite)
-		icon_flag.texture = load("res://icons//"+name_state.replace(".png", "")+".png")
-		icon_flag.scale = Vector2(0.2,0.2)
-		icon_flag.position = Vector2(image.get_width()/2,image.get_height()/2)
-			
-		var script = load('res://Province.gd')
+		create_icon_flag(icon_flag, image)
 		set_collision(image, myArea)
 		myArea.set_script(script)
 		myArea.add_child(mySprite)
 		myArea.add_child(icon_flag)
+		myArea.add_child(res)
 		add_child(myArea)
-		
-		#add_child(myArea)
-	#pass # Replace with function body.
+
 func set_collision(x, myArea):
 	var bitmap = BitMap.new()
 	bitmap.create_from_image_alpha(x)
@@ -55,10 +48,16 @@ func set_collision(x, myArea):
 		collider.polygon = polygon
 	myArea.add_child(collider)
 	
+
+func create_icon_flag(icon_flag, image):
+	icon_flag.name = "flag_icon"
+	icon_flag.texture = load("res://icons//"+name_state.replace(".png", "")+".png")
+	icon_flag.scale = Vector2(size_flag, size_flag)
+	icon_flag.position = Vector2(image.get_width()/2,image.get_height()/2)
+	
 func set_color_province(sprite):
 	var water = false
-	if "Water" in name_state:
-		water = true
+	if "Water" in name_state: water = true
 	if name_state in arr_color_state.keys() and water==false:
 		sprite.modulate = arr_color_state[name_state]
 	elif water==false:
