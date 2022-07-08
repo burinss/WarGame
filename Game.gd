@@ -9,8 +9,6 @@ var name_state
 var arr_color_state = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	position.x=100
-	position.y=100
 
 	var file = File.new()
 	file.open("res://data1.json", file.READ)
@@ -37,15 +35,15 @@ func _ready():
 		set_color_province(mySprite)
 		if name_state == "Ukraine":
 			icon_flag.texture = load("res://icons//"+name_state+".png")
-			icon_flag.scale = Vector2(0.1,0.1)
-			icon_flag.centered = false
-			icon_flag.position = Vector2(image.get_height()/1.5, image.get_width()/1.5)
-			myArea.add_child(icon_flag)
+			icon_flag.scale = Vector2(0.5,0.5)
+			icon_flag.centered = true
+			icon_flag.position = Vector2(image.get_width()/2,image.get_height()/2)
 			
 		var script = load('res://Province.gd')
 		set_collision(image, myArea)
 		myArea.set_script(script)
 		myArea.add_child(mySprite)
+		myArea.add_child(icon_flag)
 		add_child(myArea)
 		
 		#add_child(myArea)

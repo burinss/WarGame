@@ -6,7 +6,7 @@ var defence_bonus
 var uran_resource
 var gold_resource
 
-onready var the_sprite = get_node("path/to/sprite")
+#onready var the_sprite = get_node("path/to/sprite")
 
 func _ready() -> void:
 	input_pickable = true
