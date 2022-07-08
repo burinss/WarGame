@@ -34,7 +34,7 @@ func _ready():
 		mySprite.scale = Vector2(1.0,1.0)
 		
 		set_color_province(mySprite)
-		var script = load('res://Sprite.gd')
+		var script = load('res://Province.gd')
 		set_collision(image, myArea)
 		myArea.set_script(script)
 		myArea.add_child(mySprite)
