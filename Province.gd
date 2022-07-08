@@ -11,7 +11,7 @@ onready var the_sprite = get_node("path/to/sprite")
 func _ready() -> void:
 	input_pickable = true
 	self.connect("input_event", self, "_on_Area2D_input_event")
-	init()
+	
 
 func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:

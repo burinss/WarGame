@@ -25,15 +25,23 @@ func _ready():
 		myArea.position = Vector2(entity['x'],entity['y'])
 		var mySprite = Sprite.new()
 		var image = Image.new()
+		var icon_flag = Sprite.new()
 		image.load("res://cropped//" + entity['Name'])
 		name_state = entity['Name'].split("_")[0]
 
-		mySprite.centered=false
+		mySprite.centered = false
 		mySprite.texture = load("res://cropped//" + entity['Name'])
 		#mySprite.position = Vector2(entity['x'],entity['y'])
 		mySprite.scale = Vector2(1.0,1.0)
 		
 		set_color_province(mySprite)
+		if name_state == "Ukraine":
+			icon_flag.texture = load("res://icons//"+name_state+".png")
+			icon_flag.scale = Vector2(0.1,0.1)
+			icon_flag.centered = false
+			icon_flag.position = Vector2(image.get_height()/1.5, image.get_width()/1.5)
+			myArea.add_child(icon_flag)
+			
 		var script = load('res://Province.gd')
 		set_collision(image, myArea)
 		myArea.set_script(script)
