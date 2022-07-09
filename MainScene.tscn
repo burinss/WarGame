@@ -1,39 +1,45 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://InfoAboutProvinceUI.gd" type="Script" id=2]
+[ext_resource path="res://TouchCamera2D.gd" type="Script" id=3]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="Map" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 341, 167 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
+script = ExtResource( 3 )
 
-[node name="GUI" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="GUI" type="Control" parent="Camera2D"]
+margin_left = -341.0
+margin_top = -167.0
+margin_right = -301.0
+margin_bottom = -127.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/GUI"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_left = -150.0
-margin_top = -10.0
-margin_right = 1.0
-margin_bottom = 714.0
+margin_left = -158.0
+margin_top = -111.0
+margin_right = -7.0
+margin_bottom = 613.0
 script = ExtResource( 2 )
 
-[node name="Province_Name" type="Label" parent="GUI/VBoxContainer"]
+[node name="Province_Name" type="Label" parent="Camera2D/GUI/VBoxContainer"]
 margin_right = 55.0
 margin_bottom = 48.0
 rect_min_size = Vector2( 0, 48 )
 size_flags_horizontal = 0
 text = "Province"
 
-[node name="Username" type="Label" parent="GUI/VBoxContainer"]
+[node name="Username" type="Label" parent="Camera2D/GUI/VBoxContainer"]
 margin_top = 52.0
 margin_right = 66.0
 margin_bottom = 100.0
@@ -41,7 +47,7 @@ rect_min_size = Vector2( 0, 48 )
 size_flags_horizontal = 0
 text = "Username"
 
-[node name="Population" type="Label" parent="GUI/VBoxContainer"]
+[node name="Population" type="Label" parent="Camera2D/GUI/VBoxContainer"]
 margin_top = 104.0
 margin_right = 72.0
 margin_bottom = 152.0
@@ -50,7 +56,7 @@ size_flags_horizontal = 0
 text = "Population:
 "
 
-[node name="Gold_resource" type="Label" parent="GUI/VBoxContainer"]
+[node name="Gold_resource" type="Label" parent="Camera2D/GUI/VBoxContainer"]
 margin_top = 156.0
 margin_right = 34.0
 margin_bottom = 204.0
@@ -60,7 +66,7 @@ text = "Gold:
 
 "
 
-[node name="Uran_resource" type="Label" parent="GUI/VBoxContainer"]
+[node name="Uran_resource" type="Label" parent="Camera2D/GUI/VBoxContainer"]
 margin_top = 208.0
 margin_right = 34.0
 margin_bottom = 256.0
@@ -69,7 +75,7 @@ size_flags_horizontal = 0
 text = "Uran:
 "
 
-[node name="Capital" type="Label" parent="GUI/VBoxContainer"]
+[node name="Capital" type="Label" parent="Camera2D/GUI/VBoxContainer"]
 margin_top = 260.0
 margin_right = 43.0
 margin_bottom = 308.0
@@ -78,7 +84,7 @@ size_flags_horizontal = 0
 text = "Capital
 "
 
-[node name="Defence_bonus" type="Label" parent="GUI/VBoxContainer"]
+[node name="Defence_bonus" type="Label" parent="Camera2D/GUI/VBoxContainer"]
 margin_top = 312.0
 margin_right = 96.0
 margin_bottom = 360.0
@@ -87,7 +93,7 @@ size_flags_horizontal = 0
 text = "Defence bonus
 "
 
-[node name="Ideology" type="Label" parent="GUI/VBoxContainer"]
+[node name="Ideology" type="Label" parent="Camera2D/GUI/VBoxContainer"]
 margin_top = 364.0
 margin_right = 55.0
 margin_bottom = 412.0
@@ -96,7 +102,7 @@ size_flags_horizontal = 0
 text = "Ideology
 "
 
-[node name="Recruit" type="Button" parent="GUI/VBoxContainer"]
+[node name="Recruit" type="Button" parent="Camera2D/GUI/VBoxContainer"]
 margin_top = 416.0
 margin_right = 171.0
 margin_bottom = 436.0
@@ -105,25 +111,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Move" type="Button" parent="GUI/VBoxContainer"]
+[node name="Move" type="Button" parent="Camera2D/GUI/VBoxContainer"]
 margin_top = 440.0
 margin_right = 171.0
 margin_bottom = 460.0
 text = "Move"
 
-[node name="Disslove" type="Button" parent="GUI/VBoxContainer"]
+[node name="Disslove" type="Button" parent="Camera2D/GUI/VBoxContainer"]
 margin_top = 464.0
 margin_right = 171.0
 margin_bottom = 484.0
 text = "Recruit"
 
-[node name="Build" type="Button" parent="GUI/VBoxContainer"]
+[node name="Build" type="Button" parent="Camera2D/GUI/VBoxContainer"]
 margin_top = 488.0
 margin_right = 171.0
 margin_bottom = 508.0
 text = "Recruit"
 
-[node name="Destroy" type="Button" parent="GUI/VBoxContainer"]
+[node name="Destroy" type="Button" parent="Camera2D/GUI/VBoxContainer"]
 margin_top = 512.0
 margin_right = 171.0
 margin_bottom = 532.0

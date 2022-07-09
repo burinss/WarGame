@@ -2,11 +2,14 @@ extends Node2D
 
 var name_state
 var arr_color_state = {}
-
+onready var map = $Map
 var size_flag = 0.2
 var size_sprite_map = 1.0
+var selected_province:Area2D = null
 
-
+func provinceSelected(province):
+	selected_province=province
+	
 func _ready():
 	var file = File.new()
 	file.open("res://data1.json", file.READ)
@@ -19,6 +22,7 @@ func _ready():
 	for entity in entities:
 		var myArea = Area2D.new()
 		myArea.position = Vector2(entity['x'],entity['y'])
+		myArea.name = entity['Name'].split('.')[0]
 		var mySprite = Sprite.new()
 		var image = Image.new()
 		var icon_flag = Sprite.new()
@@ -37,7 +41,7 @@ func _ready():
 		myArea.add_child(mySprite)
 		myArea.add_child(icon_flag)
 		myArea.add_child(res)
-		add_child(myArea)
+		map.add_child(myArea)
 
 func set_collision(x, myArea):
 	var bitmap = BitMap.new()
@@ -67,11 +71,11 @@ func set_color_province(sprite):
 
 	
 func _unhandled_input(event):
-	if event is InputEventSingleScreenDrag:
-		$Camera2D.position-=event.relative
+	#if event is InputEventSingleScreenDrag:
+	#	$Camera2D.position-=event.relative
 		
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	$Camera2D.position = init_camera_pos - (get_global_mouse_position()-drag_position)
-#	pass
+	pass

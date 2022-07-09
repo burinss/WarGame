@@ -19,6 +19,7 @@ func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -
 		print("Clicked")
 		print(str(get_children()))
 		if event.pressed:
+			get_node('/root/Game').selected_province=self
 			modulate = Color.blueviolet
 		else:
 			modulate = Color.white
