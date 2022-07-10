@@ -17,12 +17,13 @@ onready var camera = $Camera2D
 
 var arr_elements_label
 var arr_buttons
+var last_province
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
 func _init():
-	pass
+	self.hide()
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,12 +37,40 @@ func _ready():
 		x.add_constant_override("margin_top", position)
 		position+=20.0
 		x.add_constant_override("margin_botton", position)
-	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var province = get_node('/root/Game').selected_province
-	if province!=null:
-		province_name.text=str(province.name)
-	pass
+	if province!=null and province!=last_province:
+		last_province = province
+		if province.water == false:
+			self.show()
+			
+			province_name.text=str(province.name)
+			population.text = population.text.split(":")[0]+":"+str(province.population)
+			
+			if province.gold_resource > 0:
+				Gold_resource.show()
+				Gold_resource.text = Gold_resource.text.split(":")[0]+":"+str(province.gold_resource)
+			else: Gold_resource.hide()
+			
+			if province.uran_resource > 0:
+				Uran_resource.show()
+				Uran_resource.text = Uran_resource.text.split(":")[0]+":"+str(province.uran_resource)
+			else: Uran_resource.hide()
+			
+			if province.defence_bonus > 0:
+				Defence_bonus.show()
+				Defence_bonus.text = Defence_bonus.text.split(":")[0]+":"+str(province.defence_bonus)
+			else: Defence_bonus.hide()
+			
+			if province.capital:
+				Capital.show()
+			else:
+				Capital.hide()
+			Ideology.text = "Republic"
+			user_name.hide()
+		else:
+			self.hide()
+

@@ -1,11 +1,13 @@
 extends Area2D
 
-var population 
-var max_build
-var defence_bonus
-var uran_resource
-var gold_resource
+var population = 0
+var max_build = 0
+var defence_bonus = 0
+var uran_resource = 0
+var gold_resource = 0
 var size_resource = 0.2
+var water = false
+var capital = false
 #onready var the_sprite = get_node("path/to/sprite")
 
 func _ready() -> void:
@@ -25,7 +27,7 @@ func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -
 			modulate = Color.white
 			
 func init():
-	var water = false
+	water = false
 	var province = get_children()[1]
 	if "Water" in str(province): water = true
 	if water == false:
@@ -37,16 +39,11 @@ func init():
 		if rand_range(0, 100)>60:
 			gold_resource = int(rand_range(0, 20000))
 			var sprite_gold = Sprite.new()
-			#var label_gold = Label.new()
-			#label_gold.text = str(gold_resource)
-			#label_gold.set_size(Vector2(0.2, 0.2))
-			#label_gold.rect_position  = Vector2(province.texture.get_width()/3.0, province.texture.get_width()/2.5)
 			sprite_gold.texture = load("res://icons//gold.png")
 			sprite_gold.position = Vector2(province.texture.get_width()/3.5, province.texture.get_width()/2.5)
 			sprite_gold.scale = Vector2(size_resource, size_resource)
 			sprite_gold.name = "Gold_icon"
 			add_child(sprite_gold)
-			#add_child(label_gold)
 	
 	
 func _input(event):
