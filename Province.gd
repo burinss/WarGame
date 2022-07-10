@@ -10,6 +10,18 @@ var water = false
 var capital = false
 #onready var the_sprite = get_node("path/to/sprite")
 
+var arr_capital = ["Ukraine_province_10png", "Moskovia_province_41png", "Moldova_province_1png", 
+"Slovenia_province_1png", "Denmark_province_1png", "Belarus_province_4png", "Icelandpng", " Greenlandpng",
+"Norway_province_2png", "Finland_province_1png", "Sweden_province_6png", "Estonia_province_3png",
+"Latvia_province_1png", "Lithuania_province_4png", "Poland_province_11png", "Slovakia_province_1png",
+"Romania_province_6png", "Hungary_province_2png", "Serbia_province_4png", "Albania_province_1png",
+"Macedonia_province_1png", "Turkey_province_4png", "Bulgaria_province_4png", "Greece_province_3png",
+"Montenegro_province_1png", "Bosnia_province_1png", "Croatia_province_2png", "Italia_province_7png",
+"Kosovo_province_1png", "Switzerland_province_1png", "Austria_province_3png", "Czech_province_2png",
+"France_province_7png", "Spain_province_8png", "Portugal_province_3png", "Great_Britain_province_11png",
+"Ireland_province_2png", "Germany_province_7png", "Greenlandpng", "Azerbaijan_province_1png", "Armenia_province_1png",
+"Georgia_province_1png", "Luxembourg_province_1png", "Belgium_province_1png", "Netherlands_province_1png"]
+
 func _ready() -> void:
 	init()
 	input_pickable = true
@@ -29,7 +41,10 @@ func _on_Area2D_input_event(viewport: Node, event: InputEvent, shape_idx: int) -
 func init():
 	water = false
 	var province = get_children()[1]
+	print(str(province).split(":")[0])
 	if "Water" in str(province): water = true
+	elif arr_capital.has(str(province).split(":")[0]):
+		capital = true
 	if water == false:
 		population = int(rand_range(0, 100000))
 		max_build = 5
@@ -50,6 +65,7 @@ func _input(event):
 	var drag = false
 	if event is InputEventSingleScreenDrag:
 		drag = true
+		modulate = Color.white
 	"""
 	#OG code. It works but there are more then 2 ways to skin a cat.
 	if event is InputEventSingleScreenTouch:

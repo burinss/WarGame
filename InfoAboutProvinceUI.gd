@@ -46,9 +46,10 @@ func _process(delta):
 		last_province = province
 		if province.water == false:
 			self.show()
-			
-			province_name.text=str(province.name)
-			population.text = population.text.split(":")[0]+":"+str(province.population)
+			if(str(province.name.split("_")[0])=="Great"):province_name.text = "Great Britain"
+			else:
+				province_name.text=str(province.name.split("_")[0])
+				population.text = population.text.split(":")[0]+":"+str(province.population)
 			
 			if province.gold_resource > 0:
 				Gold_resource.show()
@@ -64,7 +65,7 @@ func _process(delta):
 				Defence_bonus.show()
 				Defence_bonus.text = Defence_bonus.text.split(":")[0]+":"+str(province.defence_bonus)
 			else: Defence_bonus.hide()
-			
+			print(province.capital)
 			if province.capital:
 				Capital.show()
 			else:
