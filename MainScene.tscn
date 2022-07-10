@@ -10,127 +10,135 @@ script = ExtResource( 1 )
 [node name="Map" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 341, 167 )
+position = Vector2( 481, 272 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 script = ExtResource( 3 )
 
 [node name="GUI" type="Control" parent="Camera2D"]
-margin_left = -341.0
-margin_top = -167.0
-margin_right = -301.0
-margin_bottom = -127.0
+margin_left = -478.0
+margin_top = -269.0
+margin_right = -278.0
+margin_bottom = 1.0
+rect_clip_content = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/GUI"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-margin_left = -158.0
-margin_top = -111.0
-margin_right = -7.0
-margin_bottom = 613.0
+[node name="Panel" type="Panel" parent="Camera2D/GUI"]
+self_modulate = Color( 1, 1, 1, 0.439216 )
+anchor_bottom = 1.0
+margin_right = 200.0
+rect_clip_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/GUI/Panel"]
+anchor_left = 0.07
+anchor_top = 0.033
+anchor_right = 0.254
+anchor_bottom = 0.035
+margin_right = 160.017
+margin_bottom = 259.488
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera2D/GUI/Panel/HBoxContainer"]
+margin_right = 96.0
+margin_bottom = 260.0
 script = ExtResource( 2 )
 
-[node name="Province_Name" type="Label" parent="Camera2D/GUI/VBoxContainer"]
+[node name="Province_Name" type="Label" parent="Camera2D/GUI/Panel/HBoxContainer/VBoxContainer"]
 margin_right = 55.0
-margin_bottom = 48.0
-rect_min_size = Vector2( 0, 48 )
+margin_bottom = 14.0
 size_flags_horizontal = 0
 text = "Province"
+max_lines_visible = 2
 
-[node name="Username" type="Label" parent="Camera2D/GUI/VBoxContainer"]
-margin_top = 52.0
+[node name="Username" type="Label" parent="Camera2D/GUI/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 18.0
 margin_right = 66.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 0, 48 )
+margin_bottom = 32.0
 size_flags_horizontal = 0
 text = "Username"
 
-[node name="Population" type="Label" parent="Camera2D/GUI/VBoxContainer"]
-margin_top = 104.0
+[node name="Population" type="Label" parent="Camera2D/GUI/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 36.0
 margin_right = 72.0
-margin_bottom = 152.0
-rect_min_size = Vector2( 0, 48 )
+margin_bottom = 67.0
 size_flags_horizontal = 0
 text = "Population:
 "
 
-[node name="Gold_resource" type="Label" parent="Camera2D/GUI/VBoxContainer"]
-margin_top = 156.0
+[node name="Gold_resource" type="Label" parent="Camera2D/GUI/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 71.0
 margin_right = 34.0
-margin_bottom = 204.0
-rect_min_size = Vector2( 0, 48 )
+margin_bottom = 119.0
 size_flags_horizontal = 0
 text = "Gold:
 
 "
 
-[node name="Uran_resource" type="Label" parent="Camera2D/GUI/VBoxContainer"]
-margin_top = 208.0
+[node name="Uran_resource" type="Label" parent="Camera2D/GUI/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 123.0
 margin_right = 34.0
-margin_bottom = 256.0
-rect_min_size = Vector2( 0, 48 )
+margin_bottom = 154.0
 size_flags_horizontal = 0
 text = "Uran:
 "
 
-[node name="Capital" type="Label" parent="Camera2D/GUI/VBoxContainer"]
-margin_top = 260.0
+[node name="Capital" type="Label" parent="Camera2D/GUI/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 158.0
 margin_right = 43.0
-margin_bottom = 308.0
-rect_min_size = Vector2( 0, 48 )
+margin_bottom = 189.0
 size_flags_horizontal = 0
 text = "Capital
 "
 
-[node name="Defence_bonus" type="Label" parent="Camera2D/GUI/VBoxContainer"]
-margin_top = 312.0
+[node name="Defence_bonus" type="Label" parent="Camera2D/GUI/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 193.0
 margin_right = 96.0
-margin_bottom = 360.0
-rect_min_size = Vector2( 0, 48 )
+margin_bottom = 224.0
 size_flags_horizontal = 0
 text = "Defence bonus
 "
 
-[node name="Ideology" type="Label" parent="Camera2D/GUI/VBoxContainer"]
-margin_top = 364.0
+[node name="Ideology" type="Label" parent="Camera2D/GUI/Panel/HBoxContainer/VBoxContainer"]
+margin_top = 228.0
 margin_right = 55.0
-margin_bottom = 412.0
-rect_min_size = Vector2( 0, 48 )
+margin_bottom = 259.0
 size_flags_horizontal = 0
 text = "Ideology
 "
 
-[node name="Recruit" type="Button" parent="Camera2D/GUI/VBoxContainer"]
-margin_top = 416.0
-margin_right = 171.0
-margin_bottom = 436.0
+[node name="VBoxContainer2" type="VBoxContainer" parent="Camera2D/GUI/Panel/HBoxContainer"]
+margin_left = 100.0
+margin_right = 157.0
+margin_bottom = 260.0
+
+[node name="Disslove" type="Button" parent="Camera2D/GUI/Panel/HBoxContainer/VBoxContainer2"]
+margin_right = 57.0
+margin_bottom = 20.0
+text = "Recruit"
+
+[node name="Recruit" type="Button" parent="Camera2D/GUI/Panel/HBoxContainer/VBoxContainer2"]
+margin_top = 24.0
+margin_right = 57.0
+margin_bottom = 44.0
 text = "Recruit"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Move" type="Button" parent="Camera2D/GUI/VBoxContainer"]
-margin_top = 440.0
-margin_right = 171.0
-margin_bottom = 460.0
+[node name="Move" type="Button" parent="Camera2D/GUI/Panel/HBoxContainer/VBoxContainer2"]
+margin_top = 48.0
+margin_right = 57.0
+margin_bottom = 68.0
 text = "Move"
 
-[node name="Disslove" type="Button" parent="Camera2D/GUI/VBoxContainer"]
-margin_top = 464.0
-margin_right = 171.0
-margin_bottom = 484.0
+[node name="Build" type="Button" parent="Camera2D/GUI/Panel/HBoxContainer/VBoxContainer2"]
+margin_top = 72.0
+margin_right = 57.0
+margin_bottom = 92.0
 text = "Recruit"
 
-[node name="Build" type="Button" parent="Camera2D/GUI/VBoxContainer"]
-margin_top = 488.0
-margin_right = 171.0
-margin_bottom = 508.0
-text = "Recruit"
-
-[node name="Destroy" type="Button" parent="Camera2D/GUI/VBoxContainer"]
-margin_top = 512.0
-margin_right = 171.0
-margin_bottom = 532.0
+[node name="Destroy" type="Button" parent="Camera2D/GUI/Panel/HBoxContainer/VBoxContainer2"]
+margin_top = 96.0
+margin_right = 57.0
+margin_bottom = 116.0
 text = "Recruit"
