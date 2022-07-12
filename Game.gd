@@ -72,8 +72,7 @@ func set_color_province(sprite):
 
 	
 func _unhandled_input(event):
-	if event is InputEventSingleScreenDrag:
-		$Camera2D.position-=event.relative
+
 		
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.

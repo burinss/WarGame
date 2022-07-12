@@ -2,7 +2,7 @@ extends Camera2D
 
 # Configuration
 export(float) var MAX_ZOOM = 4
-export(float) var MIN_ZOOM = 0.16 
+export(float) var MIN_ZOOM = 0.01
 
 export(int,"disabled","pinch") var zoom_gesture = 1
 export(int,"disabled","twist") var rotation_gesture = 1
@@ -49,6 +49,8 @@ func _unhandled_input(e):
 		_rotate(e)
 	elif e is InputEventScreenPinch and zoom_gesture == 1:
 		_zoom(e)
+	elif e is InputEventSingleScreenDrag:
+		_move(e)
 
 # Given a a position on the camera returns to the corresponding global position
 func camera2global(position):
