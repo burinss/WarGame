@@ -28,12 +28,13 @@ func _ready():
 		var icon_flag = Sprite.new()
 		var res = Sprite.new()
 		var script = load('res://Province.gd')
-		image.load("res://cropped//" + entity['Name'])
 		name_state = entity['Name'].split("_")[0]
 		mySprite.centered = false
 		mySprite.texture = load("res://cropped//" + entity['Name'])
 		mySprite.scale = Vector2(size_sprite_map, size_sprite_map)
 		mySprite.name = entity['Name']
+		image = mySprite.texture.get_data()
+		image.lock()
 		set_color_province(mySprite)
 		create_icon_flag(icon_flag, image)
 		set_collision(image, myArea)
@@ -71,8 +72,8 @@ func set_color_province(sprite):
 
 	
 func _unhandled_input(event):
-	#if event is InputEventSingleScreenDrag:
-	#	$Camera2D.position-=event.relative
+	if event is InputEventSingleScreenDrag:
+		$Camera2D.position-=event.relative
 		
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.

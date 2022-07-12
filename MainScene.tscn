@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://InfoAboutProvinceUI.gd" type="Script" id=2]
 [ext_resource path="res://TouchCamera2D.gd" type="Script" id=3]
-[ext_resource path="res://Action_Button.gd" type="Script" id=4]
-[ext_resource path="res://Build.gd" type="Script" id=5]
+[ext_resource path="res://ControlPanel.gd" type="Script" id=4]
 [ext_resource path="res://icons/Ukraine.png" type="Texture" id=6]
 [ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=7]
 
@@ -15,7 +14,6 @@ script = ExtResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 0.7, 0.7 )
 script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -26,148 +24,6 @@ margin_top = 109.0
 margin_right = 265.0
 margin_bottom = 379.0
 rect_clip_content = true
-
-[node name="Panel" type="Panel" parent="CanvasLayer"]
-self_modulate = Color( 1, 1, 1, 0.439216 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -1361.0
-margin_bottom = -474.0
-rect_clip_content = true
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 25.0
-margin_top = 25.0
-margin_right = -25.0
-margin_bottom = -25.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
-margin_right = 300.0
-margin_bottom = 516.0
-rect_min_size = Vector2( 300, 0 )
-script = ExtResource( 2 )
-
-[node name="Province_Name" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_right = 117.0
-margin_bottom = 36.0
-size_flags_horizontal = 0
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 7 )
-text = "Province"
-max_lines_visible = 2
-
-[node name="Ideology" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 40.0
-margin_right = 300.0
-margin_bottom = 76.0
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 7 )
-text = "Ideology"
-
-[node name="Username" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 80.0
-margin_right = 300.0
-margin_bottom = 116.0
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 7 )
-text = "Username"
-
-[node name="Population" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 120.0
-margin_right = 300.0
-margin_bottom = 156.0
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 7 )
-text = "Population:"
-
-[node name="Gold_resource" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 160.0
-margin_right = 300.0
-margin_bottom = 196.0
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 7 )
-text = "Gold:"
-
-[node name="Uran_resource" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 200.0
-margin_right = 300.0
-margin_bottom = 236.0
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 7 )
-text = "Uran:"
-
-[node name="Capital" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 240.0
-margin_right = 300.0
-margin_bottom = 276.0
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 7 )
-text = "Capital"
-
-[node name="Defence_bonus" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 280.0
-margin_right = 300.0
-margin_bottom = 316.0
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 7 )
-text = "Defence bonus"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
-margin_left = 304.0
-margin_right = 504.0
-margin_bottom = 516.0
-size_flags_horizontal = 2
-size_flags_vertical = 0
-script = ExtResource( 4 )
-
-[node name="Recruit" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_right = 200.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 200, 100 )
-custom_fonts/font = ExtResource( 7 )
-text = "Recruit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Build" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 104.0
-margin_right = 200.0
-margin_bottom = 204.0
-rect_min_size = Vector2( 200, 100 )
-custom_fonts/font = ExtResource( 7 )
-text = "Build"
-script = ExtResource( 5 )
-
-[node name="Move" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 208.0
-margin_right = 200.0
-margin_bottom = 308.0
-rect_min_size = Vector2( 200, 100 )
-custom_fonts/font = ExtResource( 7 )
-text = "Move"
-
-[node name="Disslove" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 312.0
-margin_right = 200.0
-margin_bottom = 412.0
-rect_min_size = Vector2( 200, 100 )
-custom_fonts/font = ExtResource( 7 )
-text = "Disslove"
-
-[node name="Destroy" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 416.0
-margin_right = 200.0
-margin_bottom = 516.0
-rect_min_size = Vector2( 0, 100 )
-custom_fonts/font = ExtResource( 7 )
-text = "Destroy"
 
 [node name="Panel2" type="Panel" parent="CanvasLayer"]
 visible = false
@@ -282,3 +138,144 @@ margin_left = 4.0
 margin_top = 32.0
 margin_right = -4.0
 margin_bottom = -4.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+self_modulate = Color( 0.439216, 0.368627, 0.368627, 0.380392 )
+margin_left = 28.0
+margin_top = 233.0
+margin_right = 545.0
+margin_bottom = 764.0
+mouse_filter = 1
+input_pass_on_modal_close_click = false
+script = ExtResource( 4 )
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 464.0
+margin_bottom = 476.0
+rect_scale = Vector2( 0.994106, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel/MarginContainer"]
+margin_right = 981.0
+margin_bottom = 1007.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+margin_right = 300.0
+margin_bottom = 1007.0
+rect_min_size = Vector2( 300, 0 )
+script = ExtResource( 2 )
+
+[node name="Province_Name" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_right = 117.0
+margin_bottom = 36.0
+size_flags_horizontal = 0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Province"
+max_lines_visible = 2
+
+[node name="Ideology" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 300.0
+margin_bottom = 76.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Ideology"
+
+[node name="Username" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 300.0
+margin_bottom = 116.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Username"
+
+[node name="Population" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 120.0
+margin_right = 300.0
+margin_bottom = 156.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Population:"
+
+[node name="Gold_resource" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 160.0
+margin_right = 300.0
+margin_bottom = 196.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Gold:"
+
+[node name="Uran_resource" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 200.0
+margin_right = 300.0
+margin_bottom = 236.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Uran:"
+
+[node name="Capital" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 240.0
+margin_right = 300.0
+margin_bottom = 276.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Capital"
+
+[node name="Defence_bonus" type="Label" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 280.0
+margin_right = 300.0
+margin_bottom = 316.0
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 7 )
+text = "Defence bonus"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer"]
+margin_left = 304.0
+margin_right = 504.0
+margin_bottom = 516.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+
+[node name="Recruit" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_right = 200.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 200, 100 )
+custom_fonts/font = ExtResource( 7 )
+text = "Recruit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Build" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 104.0
+margin_right = 200.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 200, 100 )
+custom_fonts/font = ExtResource( 7 )
+text = "Build"
+
+[node name="Move" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 208.0
+margin_right = 200.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 200, 100 )
+custom_fonts/font = ExtResource( 7 )
+text = "Move"
+
+[node name="Disslove" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 312.0
+margin_right = 200.0
+margin_bottom = 412.0
+rect_min_size = Vector2( 200, 100 )
+custom_fonts/font = ExtResource( 7 )
+text = "Disslove"
+
+[node name="Destroy" type="Button" parent="CanvasLayer/Panel/MarginContainer/HBoxContainer/VBoxContainer2"]
+margin_top = 416.0
+margin_right = 200.0
+margin_bottom = 516.0
+rect_min_size = Vector2( 0, 100 )
+custom_fonts/font = ExtResource( 7 )
+text = "Destroy"

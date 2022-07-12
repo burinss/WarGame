@@ -66,6 +66,7 @@ func _input(event):
 	if event is InputEventSingleScreenDrag:
 		drag = true
 		modulate = Color.white
+		get_node('/root/Game').selected_province=null
 	"""
 	#OG code. It works but there are more then 2 ways to skin a cat.
 	if event is InputEventSingleScreenTouch:

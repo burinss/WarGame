@@ -68,11 +68,6 @@ _global_script_classes=[ {
 "class": "RawGesture",
 "language": "GDScript",
 "path": "res://GDTIM-v2_1_0/RawGesture.gd"
-}, {
-"base": "Camera2D",
-"class": "TouchCamera2D",
-"language": "GDScript",
-"path": "res://TouchCamera2D.gd"
 } ]
 _global_script_class_icons={
 "InputEventMultiScreenDrag": "",
@@ -86,8 +81,7 @@ _global_script_class_icons={
 "InputEventSingleScreenSwipe": "",
 "InputEventSingleScreenTap": "",
 "InputEventSingleScreenTouch": "",
-"RawGesture": "",
-"TouchCamera2D": ""
+"RawGesture": ""
 }
 
 [application]
@@ -107,6 +101,10 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=1920
 window/size/height=1080
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/ppc/plugin.cfg" )
 
 [global]
 
