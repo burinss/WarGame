@@ -19,8 +19,8 @@ func _process(delta):
 	var province = get_node('/root/Game').selected_province
 	if province!=null and province!=last_province:
 		last_province = province
-		if province.water:
-			get_parent().hide()
+		#if province.water:
+			#get_parent().hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

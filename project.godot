@@ -113,6 +113,7 @@ window/size/height=1080
 android=false
 simul=false
 input=false
+font=false
 
 [input_devices]
 
