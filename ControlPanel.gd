@@ -16,8 +16,8 @@ func _unhandled_input(event):
 		
 func _process(delta):
 	var province = get_node('/root/Game').selected_province
-	#if province!=null:
-	#	self.show()
+	if province!=null:
+		self.show()
 	#if province == true:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
