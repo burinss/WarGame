@@ -87,11 +87,12 @@ _global_script_class_icons={
 [application]
 
 config/name="WarGame"
-run/main_scene="res://MainScene.tscn"
+run/main_scene="res://Network/Connection_map.tscn"
 
 [autoload]
 
 InputManager="*res://GDTIM-v2_1_0/InputManager.gd"
+Network="*res://Network/Network.gd"
 
 [debug]
 
@@ -104,7 +105,7 @@ window/size/height=1080
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/ppc/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [global]
 

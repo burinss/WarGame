@@ -1,8 +1,8 @@
 extends Camera2D
 
 # Configuration
-export(float) var MAX_ZOOM = 4
-export(float) var MIN_ZOOM = 0.01
+export(float) var MAX_ZOOM = 1
+export(float) var MIN_ZOOM = 0.08
 
 export(int,"disabled","pinch") var zoom_gesture = 1
 export(int,"disabled","twist") var rotation_gesture = 1
